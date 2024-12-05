@@ -48,3 +48,5 @@ if isinstance(promedio, str):
     print(promedio)  # Mensaje de error o de falta de datos
 else:
     print(f"El promedio del Treasury Bill desde {fecha_inicio} hasta {fecha_fin} es: {promedio:.2f}%")
+
+st.write("Hello, *World!* :sunglasses:")

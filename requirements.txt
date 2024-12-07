@@ -9,3 +9,4 @@ numpy
 streamlit
 seaborn
 PyPortfolioOpt
+scikit-learn

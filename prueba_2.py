@@ -271,7 +271,7 @@ for text in texts:
     text.set_fontsize(12)
 
 # Título
-ax.set_title("Portfolio Weights", fontsize=16, weight="bold")
+ax.set_title("Asset Allocation", fontsize=16, weight="bold")
 
 # Texto personalizado centrado abajo
 plt.figtext(
@@ -380,3 +380,4 @@ elif selected_option == "Portfolio Weights":
     plot_portfolio_weights()
 elif selected_option == "All Views":
     show_views()
+#prueba sync git 

@@ -60,7 +60,7 @@ capitalizacion = pd.to_numeric(capitalizacion, errors='coerce').fillna(0)
 #obtenemos los priors
 S = risk_models.CovarianceShrinkage(data_bl).ledoit_wolf()
 delta = black_litterman.market_implied_risk_aversion(market_prices)
-
+#lets gooooooo
 # Check for NaN values in the covariance matrix
 if S.isnull().values.any():
     print("Warning: Covariance matrix contains NaN values.")

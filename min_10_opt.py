@@ -56,18 +56,33 @@ else:
     covariance_matrix_mxn = S_mxn @ correlation_matrix_mxn.to_numpy() @ S_mxn
     covariance_matrix_inv_mxn = np.linalg.inv(covariance_matrix_mxn)
 
-    # Cálculos de portafolio
+try:
+    # Vector de unos ajustado a la cantidad de ETFs seleccionados
     ones = np.ones(len(etfs))
+
+    # Cálculos de A, B y C
     A_mxn = ones @ covariance_matrix_inv_mxn @ ones
     B_mxn = total_returns_mxn @ covariance_matrix_inv_mxn @ ones
     C_mxn = total_returns_mxn @ covariance_matrix_inv_mxn @ total_returns_mxn
+
+    # Parámetros del portafolio
     expected_return_mxn = 0.10 / 252
     denominator_mxn = (A_mxn * C_mxn - B_mxn**2)
     _lambda_mxn = (expected_return_mxn * A_mxn - B_mxn) / denominator_mxn
     _gamma_mxn = (C_mxn - expected_return_mxn * B_mxn) / denominator_mxn
-    weights_mxn = covariance_matrix_inv_mxn @ (_lambda_mxn * total_returns_mxn + _gamma_mxn * ones)
 
+    # Pesos del portafolio
+    weights_mxn = covariance_matrix_inv_mxn @ (_lambda_mxn * total_returns_mxn + _gamma_mxn * ones)
     weights_df_mxn = pd.DataFrame(weights_mxn, index=etfs, columns=["Pesos"])
+
+    # Mostrar resultados y gráfica
+    st.subheader("Pesos calculados del portafolio")
+    st.dataframe(weights_df_mxn.style.format({"Pesos": "{:.2%}"}))
+
+    # Crear la gráfica (este bloque ya lo tienes implementado)
+    ...
+
+
 
     # Visualización de los resultados
     st.subheader("Pesos calculados del portafolio")
@@ -118,3 +133,5 @@ else:
     # Mostrar la gráfica en Streamlit
     st.pyplot(fig)
 
+except ValueError as e:
+    st.error(f"Error al calcular el portafolio: {e}")

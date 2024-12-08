@@ -95,8 +95,10 @@ fig_pie.patch.set_facecolor("gray")
 st.pyplot(fig_pie)
 
 # ---- Gráfica de portafolios simulados ----
-st.subheader('''To get the weights of the portfolio, we simulated 10000 possible portfolios, 
-             which are shown in the graphic below.''')
+st.subheader('''Simulation Graph''')
+st.write('''To get the Max Sharpe Ratio Portfolio Allocation, 
+         we have simulated 10000 portfolios which are shown in the graphic below, the portfolio
+         of max sharpe is highlighted with a purple star''' )
 
 fig_scatter = px.scatter(
     temp,

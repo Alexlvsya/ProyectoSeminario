@@ -102,7 +102,7 @@ def graficar_drawdown_portafolio(precios, titulo="Drawdown del Portafolio"):
     return fig
 
 # Función para calcular métricas del portafolio
-def calcular_metricas_portafolio(precios, retornos, pesos, tasa_libre_riesgo=0.0116):
+def calcular_metricas_portafolio(precios, retornos, pesos, tasa_libre_riesgo=0.0116 / 252):
     rendimiento_anual = retornos.mean() * 252
     rendimiento_acumulado = (1 + retornos).prod() - 1
     volatilidad_anual = retornos.std() * np.sqrt(252)
@@ -167,9 +167,45 @@ if tipo_vista == "Portafolio":
     precios_portafolio = (retornos * pesos).sum(axis=1).cumsum()
 
     metricas = calcular_metricas_portafolio(precios_portafolio, retornos @ pesos, pesos)
-    
+
     st.subheader(f"Métricas del {portafolio_seleccionado}")
-    st.write(metricas)
+    st.markdown("""
+    | Métrica                       | Valor                       |
+    |-------------------------------|-----------------------------|
+    | **Rendimiento Anual (%)**     | {:.2f}%                    |
+    | **Rendimiento Acumulado (%)** | {:.2f}%                    |
+    | **Volatilidad Anual (%)**     | {:.2f}%                    |
+    | **Sharpe Ratio**              | {:.2f}                     |
+    | **Sortino Ratio**             | {:.2f}                     |
+    | **Sesgo**                     | {:.2f}                     |
+    | **Curtosis**                  | {:.2f}                     |
+    | **VaR 95%**                   | {:.4f}                     |
+    | **CVaR 95%**                  | {:.4f}                     |
+    | **Máximo Drawdown (%)**       | {:.2f}%                    |
+    | **Fecha Pico**                | {}                         |
+    | **Fecha Valle**               | {}                         |
+    | **Duración de la Caída (días)**| {}                        |
+    | **Fecha Recuperación**        | {}                         |
+    | **Duración Recuperación (días)**| {}                      |
+    | **Duración Total (días)**     | {}                         |
+    """.format(
+        metricas['Rendimiento Anual (%)'],
+        metricas['Rendimiento Acumulado (%)'],
+        metricas['Volatilidad Anual (%)'],
+        metricas['Sharpe Ratio'],
+        metricas['Sortino Ratio'],
+        metricas['Sesgo'],
+        metricas['Curtosis'],
+        metricas['VaR 95%'],
+        metricas['CVaR 95%'],
+        metricas['Máximo Drawdown (%)'],
+        metricas['Fecha Pico'],
+        metricas['Fecha Valle'],
+        metricas['Duración de la Caída (días)'],
+        metricas['Fecha Recuperación'],
+        metricas['Duración Recuperación (días)'],
+        metricas['Duración Total (días)']
+    ))
 
     fig = graficar_drawdown_portafolio(precios_portafolio, f"{portafolio_seleccionado} Drawdown")
     st.plotly_chart(fig)
@@ -210,3 +246,4 @@ else:
     )
 
     st.plotly_chart(fig_comparacion)
+

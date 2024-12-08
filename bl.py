@@ -370,7 +370,9 @@ if selected_option == "Correlation Heatmap":
     st.subheader("Correlation Heatmap")
     plot_correlation_heatmap()
     st.subheader("Analysis")
-    st.write("In this chart")
+    st.write('''In this chart are displayed all correlations between the different
+             assets that will conform the portfolio. There are some highlights here that 
+             we would like to remark; ''')
 elif selected_option == "Market Prior Returns":
     st.subheader("Market Prior Returns")
     plot_market_prior_returns()

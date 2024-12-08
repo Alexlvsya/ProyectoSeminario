@@ -369,6 +369,8 @@ selected_option = st.sidebar.selectbox("Choose what to display:", graph_options)
 if selected_option == "Correlation Heatmap":
     st.subheader("Correlation Heatmap")
     plot_correlation_heatmap()
+    st.subheader("Analysis")
+    st.write("In this chart")
 elif selected_option == "Market Prior Returns":
     st.subheader("Market Prior Returns")
     plot_market_prior_returns()

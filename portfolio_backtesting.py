@@ -59,7 +59,7 @@ def graficar_drawdown_portafolio(precios, titulo="Drawdown del Portafolio"):
         go.Scatter(
             x=precios.index,
             y=precios.values,
-            name='Valor del Portafolio',
+            name='Portfolio Value',
             line=dict(color='blue'),
         ),
         row=1, col=1
@@ -95,9 +95,9 @@ def graficar_drawdown_portafolio(precios, titulo="Drawdown del Portafolio"):
         hovermode='x unified'
     )
 
-    fig.update_yaxes(title="Valor (Base 100)", row=1, col=1)
+    fig.update_yaxes(title="Value (100 Base)", row=1, col=1)
     fig.update_yaxes(title="Drawdown %", tickformat=".1%", range=[-1, 0.1], row=2, col=1)
-    fig.update_xaxes(title="Fecha", row=2, col=1)
+    fig.update_xaxes(title="Date", row=2, col=1)
 
     return fig
 
@@ -156,11 +156,11 @@ precios = obtener_datos_acciones(simbolos, start_date)
 retornos = precios.pct_change().dropna()
 
 # Interfaz de Streamlit
-st.title("Análisis de Portafolios")
+st.title("Portafolio Backetesting Analysis")
 
-tipo_vista = st.radio("Seleccione el tipo de visualización:", ("Portafolio", "Comparación de Rendimientos"))
+tipo_vista = st.radio("Select Preferred View:", ("Individual Portfolio Analysis", "Returns against S&P500"))
 
-if tipo_vista == "Portafolio":
+if tipo_vista == "Individual Portfolio Analysis":
     portafolio_seleccionado = st.selectbox("Seleccione un portafolio:", nombres_portafolios)
     idx = nombres_portafolios.index(portafolio_seleccionado)
     pesos = pesos_list[idx]
@@ -168,7 +168,7 @@ if tipo_vista == "Portafolio":
 
     metricas = calcular_metricas_portafolio(precios_portafolio, retornos @ pesos, pesos)
 
-    st.subheader(f"Métricas del {portafolio_seleccionado}")
+    st.subheader(f"Metrics of  {portafolio_seleccionado}")
     st.markdown("""
     | Métrica                       | Valor                       |
     |-------------------------------|-----------------------------|

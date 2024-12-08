@@ -29,7 +29,7 @@ if main_option == "ETF Individual Analysis":
     etf_selection = st.selectbox("Selecciona un análisis", etf_options)
 
     if etf_selection == "Metrics and Var/CVaR Analysis":
-        st.markdown("[Ir a Metrics and Var/CVaR Analysis](#)")
+        st.markdown("[Ir a Metrics and Var/CVaR Analysis](https://proyectoseminario-axpnjhfam5z8gv2ma8ntnx.streamlit.app/)")
     elif etf_selection == "Drawdown Analysis":
         st.markdown("[Ir a Drawdown Analysis](#)")
 
@@ -60,5 +60,5 @@ elif main_option == "Black-Litterman Model":
     st.markdown("[Ir a Black-Litterman Model](#)")
 
 # Pie de página
-st.markdown("The different analysis shown are not an investment reccomendation and are just for educational purposes")
-st.write("Creado por Alejandro Ramirez Camacho y Emilio Dominguez Valenzuela.")
+st.markdown("The different analysis shown are not an investment reccomendations and are just for educational purposes")
+st.write("Credits: Alejandro Ramirez Camacho y Emilio Dominguez Valenzuela.")

@@ -57,7 +57,7 @@ elif main_option == "Portfolio Backtesting":
 
 elif main_option == "Black-Litterman Model":
     st.subheader("Black-Litterman Model")
-    st.markdown("[Ir a Black-Litterman Model](#)")
+    st.markdown("[Ir a Black-Litterman Model](https://proyectoseminario-hagckoosfjvgxkcjtxxfjq.streamlit.app/)")
 
 # Pie de página
 st.markdown("The different analysis shown are not an investment reccomendations and are just for educational purposes")

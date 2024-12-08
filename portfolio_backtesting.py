@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 # Función para obtener datos históricos de precios
-def obtener_datos_acciones(simbolos, start_date, end_date=None):
+def obtener_datos_acciones(simbolos, start_date, end_date= None):
     if end_date is None:
         end_date = datetime.now()
     data = yf.download(simbolos, start=start_date, end=end_date)['Close']
@@ -139,6 +139,7 @@ def calcular_metricas_portafolio(precios, retornos, pesos, tasa_libre_riesgo=0.0
 # Parámetros de entrada
 simbolos = ['EMB', 'XLE', 'SPXL', 'EEM', 'SHV']
 start_date = '2021-01-01'
+end_date = '2023-12-31'
 pesos_1 = np.array([0.02, 0.0, 0.9991, 0.03, 0.04])
 pesos_2 = np.array([0.0001, 0.0272, 0.2326, 0.7372, 0.00028])
 pesos_3 = np.array([0.213934, 0.049223, 0.715274, -0.019618, 0.041187])

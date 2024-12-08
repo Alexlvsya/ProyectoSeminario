@@ -17,11 +17,11 @@ st.set_page_config(
 )
 
 # Título de la página
-st.title("Minimum Variance Portfolio")
-st.write("Visualización de la asignación de activos y estadísticas clave del portafolio.")
+st.title("Minimum Volatility Portfolio")
+st.write("The following allocation was calculated with the Minimum Variance Portafolio method.")
 
 # Sección de visualización
-st.header("Asignación de Activos")
+st.header("Asset Allocation")
 
 # Separar nombres de activos y pesos
 activos, pesos = zip(*k)
@@ -51,7 +51,7 @@ fig.patch.set_facecolor("gray")
 st.pyplot(fig)
 
 # Sección de estadísticas del portafolio
-st.header("Estadísticas del Portafolio")
+st.header("Portfolio Satistics")
 stats_table = list(zip(stats, around(portfolio_stats_values, 4)))
 
 # Mostrar estadísticas en tabla

@@ -126,7 +126,7 @@ def obtener_max_drawdown_info(precios):
 # Configurar Streamlit
 st.set_page_config(page_title="Análisis de ETFs", layout="wide")
 
-st.title("Análisis de Drawdown y Rendimiento de ETFs")
+st.title("ETFs Drawdown Analysis")
 
 # Parámetros iniciales
 simbolos = ["EMB", "XLE", "SPXL", "EEM", "SHV"]
@@ -138,29 +138,29 @@ datos = obtener_datos_acciones(simbolos, start_date, end_date)
 
 # Selección del ETF
 etf_seleccionado = st.selectbox(
-    "Selecciona un ETF para analizar:",
+    "Select an ETF to Analyze:",
     options=simbolos,
     format_func=lambda x: f"{x} (ETF)",
-    help="Selecciona el ETF para visualizar su análisis y gráficos."
+    help="Select one Etf to visualize its Drawdown Anlyisis and it graphs."
 )
 
 # Procesar datos del ETF seleccionado
 precios = datos[etf_seleccionado]
-fig = graficar_drawdown_financiero(precios, f'Análisis de Drawdown - {etf_seleccionado}')
+fig = graficar_drawdown_financiero(precios, f'Drawdown Analyisis - {etf_seleccionado}')
 info_dd = obtener_max_drawdown_info(precios)
 
 # Mostrar gráficos y análisis
 st.plotly_chart(fig, use_container_width=True)
 
-st.subheader(f"Análisis de Drawdown para {etf_seleccionado}")
-st.write(f"**Máximo Drawdown:** {info_dd['max_drawdown']:.2f}%")
-st.write(f"**Fecha del pico:** {info_dd['fecha_pico'].strftime('%Y-%m-%d')}")
-st.write(f"**Fecha del valle:** {info_dd['fecha_valle'].strftime('%Y-%m-%d')}")
-st.write(f"**Duración de la caída:** {info_dd['duracion_caida']} días")
+st.subheader(f"Drawdown analysis for {etf_seleccionado}")
+st.write(f"**Max Drawdown:** {info_dd['max_drawdown']:.2f}%")
+st.write(f"**Peak Date:** {info_dd['fecha_pico'].strftime('%Y-%m-%d')}")
+st.write(f"**Valley Date:** {info_dd['fecha_valle'].strftime('%Y-%m-%d')}")
+st.write(f"**Decline Lenght:** {info_dd['duracion_caida']} days ")
 
 if info_dd['fecha_recuperacion']:
-    st.write(f"**Fecha de recuperación:** {info_dd['fecha_recuperacion'].strftime('%Y-%m-%d')}")
-    st.write(f"**Duración de la recuperación:** {info_dd['duracion_recuperacion']} días")
-    st.write(f"**Duración total:** {info_dd['duracion_total']} días")
+    st.write(f"**Recovery Date:** {info_dd['fecha_recuperacion'].strftime('%Y-%m-%d')}")
+    st.write(f"**Recovery Lenght:** {info_dd['duracion_recuperacion']} days")
+    st.write(f"**Total Lenght:** {info_dd['duracion_total']} days")
 else:
-    st.write("El activo aún no se ha recuperado del máximo drawdown.")
+    st.write("Asset has not recovered yet from max drawdown.")

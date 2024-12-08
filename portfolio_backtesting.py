@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 # Función para obtener datos históricos de precios
-def obtener_datos_acciones(simbolos, start_date, end_date):
+def obtener_datos_acciones(simbolos, start_date, end_date = None):
     if end_date is None:
         end_date = datetime.now()
     data = yf.download(simbolos, start=start_date, end=end_date)['Close']

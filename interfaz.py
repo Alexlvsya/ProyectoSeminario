@@ -53,7 +53,7 @@ elif main_option == "Portfolio Optimization":
 
 elif main_option == "Portfolio Backtesting":
     st.subheader("Portfolio Backtesting")
-    st.markdown("[Ir a Portfolio Backtesting](#)")
+    st.markdown("[Ir a Portfolio Backtesting](https://proyectoseminario-aievfsagdffprfdywghdn2.streamlit.app/)")
 
 elif main_option == "Black-Litterman Model":
     st.subheader("Black-Litterman Model")

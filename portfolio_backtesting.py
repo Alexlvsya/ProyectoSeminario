@@ -270,6 +270,7 @@ else:
              The Equally Weighted Portfolio is the one who tracks the best the S&P500 
              returns, but its still below it. 
              The Minimum Volatility Portfolios  are clearly behind the last 2, actually
-             the Minimum Volatility Portfolio is losing, maybe because its return objective
+             the Minimum Volatility Portfolio with an objective value is losing, maybe 
+             because its return objective
              is in terms of Mexican Pesos (MXN)''')
 

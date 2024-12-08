@@ -49,7 +49,7 @@ elif main_option == "Portfolio Optimization":
     elif optimization_selection == "Minimum Volatility":
         st.markdown("[Ir a Minimum Volatility](https://proyectoseminario-agqznvx4oz8tx5wpgbecmk.streamlit.app/)")
     elif optimization_selection == "Minimum Volatility with a 10% Objective":
-        st.markdown("[Ir a Minimum Volatility with a 10% Objective](#)")
+        st.markdown("[Ir a Minimum Volatility with a 10% Objective](https://proyectoseminario-yjtip7ly38s5ndspy8iurm.streamlit.app/)")
 
 elif main_option == "Portfolio Backtesting":
     st.subheader("Portfolio Backtesting")

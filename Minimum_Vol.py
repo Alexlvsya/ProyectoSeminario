@@ -56,7 +56,10 @@ stats_table = list(zip(stats, around(portfolio_stats_values, 4)))
 
 # Mostrar estadísticas en tabla
 st.table(stats_table)
-
+st.write('''If we go back to the ETF stats, que will notice that the SPXL is the ETF with the 
+         minimum volatility, so in this case, the optimization is giving 
+         us a corner solution, allocating almost all of the portfolio 
+         value in just one ETF, the one that has the Minimum Volatility ''')
 # Pie de página
 st.markdown("This is not an investment Recommendation ")
 st.write("Credits: Alejandro Ramírez Camacho and Emilio Dominguez Valenzuela.")

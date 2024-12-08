@@ -47,7 +47,10 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
+st.write('''The model shows an explicit preference for the SPXL (the SPXL has the Minimum variance in the 
+         individual analysis of each ETF), followed by the EMB etf, the main and most interesting thing that 
+         differenciate this model from the others is that this allocation is sub_invested in the EEM etf, we 
+         think its because of the high volatility and small returns on the time period. ''')
 # Pie de página profesional
 st.markdown(
     """

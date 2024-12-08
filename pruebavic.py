@@ -99,9 +99,9 @@ def graficar_var_cvar(etf, returns):
     plt.axhline(y=cvar, color='green', linestyle='--', linewidth=1.5, label=f'CVaR (95%): {cvar:.2f}%')
 
     # Configuración de diseño
-    plt.title(f'VaR/CVaR para {etf}', fontsize=18, weight='bold')
-    plt.xlabel('Fecha', fontsize=14)
-    plt.ylabel('Rendimiento (%)', fontsize=14)
+    plt.title(f'VaR/CVaR for {etf}', fontsize=18, weight='bold')
+    plt.xlabel('Date', fontsize=14)
+    plt.ylabel('Return (%)', fontsize=14)
     plt.legend(loc="upper left", frameon=True, shadow=True)
     plt.grid(color='gray', linestyle='--', linewidth=0.5, alpha=0.7)
     plt.gca().set_facecolor('lightgray')

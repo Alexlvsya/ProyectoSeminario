@@ -251,7 +251,7 @@ else:
     yaxis_title="Cumulative Returns",
     yaxis_tickformat=".0%",
     height=450,  # Aumenta la altura de la figura
-    width=1200   # Aumenta el ancho de la figura
+    width=1200,   # Aumenta el ancho de la figura
     legend=dict(
         font=dict(size=10)  # Ajusta el tamaño de la fuente de la leyenda
     )

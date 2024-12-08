@@ -272,5 +272,10 @@ else:
              The Minimum Volatility Portfolios  are clearly behind the last 2, actually
              the Minimum Volatility Portfolio with an objective value is losing, maybe 
              because its return objective
-             is in terms of Mexican Pesos (MXN)''')
+             is in terms of Mexican Pesos (MXN).
+             Given the current stats, it would have been better to invest in the Portfolio 
+             allocated by the Max Sharpe Ratio Metod by many reasons, is the only one that
+             has beaten the Benchmark, it has cumulative returns of more than 120 percent 
+             of its inicial value, and eventhough the volatility is quite high, the return
+             keeping in mind the risk is more than acceptable. ''')
 

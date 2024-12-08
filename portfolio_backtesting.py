@@ -189,7 +189,7 @@ if tipo_vista == "Portafolio":
     | **Recovery Lenght(days)**     | {}                          |
     | **Total Lenght (days)**       | {}                          |
     """.format(
-        metricas[' Rendimiento Anual  (%)'],
+     metricas[' Rendimiento Anual  (%)'],
         metricas[' Rendimiento Acumulado(%)'],
         metricas[' Volatilidad Anual (%)'],
         metricas['Sharpe Ratio'],

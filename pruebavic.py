@@ -8,29 +8,33 @@ import matplotlib.pyplot as plt
 st.set_page_config(
     page_title="Análisis de VaR/CVaR para ETFs",
     layout="wide",
-    page_icon="📈",
+    initial_sidebar_state="expanded",
 )
 
-# Estilo personalizado con CSS
-st.markdown("""
+# Estilos personalizados con CSS
+st.markdown(
+    """
     <style>
-        body {
-            background-color: #001f3f;
+        .main {
+            background-color: #001f3f; /* Azul marino */
             color: white;
-        }
-        .stDataFrame, .stTable {
-            background-color: #003366;
-            color: white;
-            border: 1px solid white;
         }
         .sidebar .sidebar-content {
-            background-color: #003366;
+            background-color: #003366; /* Azul más oscuro */
         }
-        h1, h2, h3, h4, h5, h6 {
-            color: #7FDBFF;
+        .css-1lcbmhc, .css-1x8cf1d, .css-2trqyj { 
+            color: white; /* Texto en la barra lateral */
+        }
+        .css-17eq0hr a {
+            color: #66ccff; /* Links */
+        }
+        .dataframe tr:hover {
+            background-color: #112b47; /* Resaltar filas al pasar el mouse */
         }
     </style>
-""", unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True,
+)
 
 # Función para calcular CVaR
 def calculate_cvar(returns, alpha=0.05):
@@ -89,26 +93,26 @@ def graficar_var_cvar(etf, returns):
     cvar = calculate_cvar(etf_returns)
 
     plt.figure(figsize=(12, 6))
-    plt.plot(etf_returns.index, etf_returns, color="#7FDBFF", label=f'Daily Returns - {etf}')
-    plt.fill_between(etf_returns.index, etf_returns, color='#7FDBFF', alpha=0.1)
+    plt.plot(etf_returns.index, etf_returns, color="#2C3E50", label=f'Daily Returns - {etf}')
+    plt.fill_between(etf_returns.index, etf_returns, color='#2C3E50', alpha=0.1)
     plt.axhline(y=var, color='red', linestyle='--', linewidth=1.5, label=f'VaR (95%): {var:.2f}%')
     plt.axhline(y=cvar, color='green', linestyle='--', linewidth=1.5, label=f'CVaR (95%): {cvar:.2f}%')
 
     # Configuración de diseño
-    plt.title(f'VaR/CVaR for {etf}', fontsize=18, weight='bold', color='white')
-    plt.xlabel('Date', fontsize=14, color='white')
-    plt.ylabel('Return (%)', fontsize=14, color='white')
-    plt.legend(loc="upper left", frameon=True, shadow=True, facecolor='#001f3f', edgecolor='white', fontsize=12)
+    plt.title(f'VaR/CVaR para {etf}', fontsize=18, weight='bold')
+    plt.xlabel('Fecha', fontsize=14)
+    plt.ylabel('Rendimiento (%)', fontsize=14)
+    plt.legend(loc="upper left", frameon=True, shadow=True)
     plt.grid(color='gray', linestyle='--', linewidth=0.5, alpha=0.7)
-    plt.gca().set_facecolor('#003366')
-    plt.gca().tick_params(axis='x', colors='white')
-    plt.gca().tick_params(axis='y', colors='white')
+    plt.gca().set_facecolor('lightgray')
     plt.tight_layout()
     return plt
 
 # Streamlit UI
-st.title("📈 Análisis de VaR/CVaR para ETFs")
-st.sidebar.header("Parámetros")
+st.title("Análisis de VaR/CVaR para ETFs 📊")
+
+# Barra lateral
+st.sidebar.header("Parámetros 📌")
 
 # Selector de ETF
 etf_seleccionado = st.sidebar.selectbox(
@@ -123,5 +127,6 @@ grafica = graficar_var_cvar(etf_seleccionado, daily_returns)
 st.pyplot(grafica)
 
 # Mostrar tabla con métricas
-st.subheader("📊 Tabla de métricas de todos los ETFs")
-st.dataframe(metrics_df.style.set_properties(**{'background-color': '#003366', 'color': 'white'}))
+st.subheader("Tabla de métricas de todos los ETFs")
+st.dataframe(metrics_df.style.background_gradient(cmap="Blues"))
+

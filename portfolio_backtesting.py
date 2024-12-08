@@ -172,26 +172,26 @@ if tipo_vista == "Portafolio":
     st.markdown("""
     | Métrica                       | Valor                       |
     |-------------------------------|-----------------------------|
-    | **Rendimiento Anual (%)**     | {:.2f}%                    |
-    | **Rendimiento Acumulado (%)** | {:.2f}%                    |
-    | **Volatilidad Anual (%)**     | {:.2f}%                    |
-    | **Sharpe Ratio**              | {:.2f}                     |
-    | **Sortino Ratio**             | {:.2f}                     |
-    | **Sesgo**                     | {:.2f}                     |
-    | **Curtosis**                  | {:.2f}                     |
-    | **VaR 95%**                   | {:.4f}                     |
-    | **CVaR 95%**                  | {:.4f}                     |
-    | **Máximo Drawdown (%)**       | {:.2f}%                    |
-    | **Fecha Pico**                | {}                         |
-    | **Fecha Valle**               | {}                         |
-    | **Duración de la Caída (días)**| {}                        |
-    | **Fecha Recuperación**        | {}                         |
-    | **Duración Recuperación (días)**| {}                      |
-    | **Duración Total (días)**     | {}                         |
+    | **Anual Return (%)**          | {:.2f}%                     |
+    | **Cumulative Return  (%)**    | {:.2f}%                     |
+    | **Anual Volatility (%)**      | {:.2f}%                     |
+    | **Sharpe Ratio**              | {:.2f}                      |
+    | **Sortino Ratio**             | {:.2f}                      |
+    | **Skewness**                  | {:.2f}                      |
+    | **Kurtosis**                  | {:.2f}                      |
+    | **VaR 95%**                   | {:.4f}                      |
+    | **CVaR 95%**                  | {:.4f}                      |
+    | **Max Drawdown (%)**          | {:.2f}%                     |
+    | **Peak Date**                 | {}                          |
+    | **Valley Date**               | {}                          |
+    | **Decline Lenght (days) **    | {}                          |
+    | **Recovery Date**             | {}                          |
+    | **Recovery Lenght(days)**     | {}                          |
+    | **Total Lenght (days)**       | {}                          |
     """.format(
-        metricas['Rendimiento Anual (%)'],
-        metricas['Rendimiento Acumulado (%)'],
-        metricas['Volatilidad Anual (%)'],
+        metricas[' Rendimiento Anual  (%)'],
+        metricas[' Rendimiento Acumulado(%)'],
+        metricas[' Volatilidad Anual (%)'],
         metricas['Sharpe Ratio'],
         metricas['Sortino Ratio'],
         metricas['Sesgo'],
@@ -201,7 +201,7 @@ if tipo_vista == "Portafolio":
         metricas['Máximo Drawdown (%)'],
         metricas['Fecha Pico'],
         metricas['Fecha Valle'],
-        metricas['Duración de la Caída (días)'],
+        metricas[' Duración de la Caída (días)'],
         metricas['Fecha Recuperación'],
         metricas['Duración Recuperación (días)'],
         metricas['Duración Total (días)']
@@ -239,9 +239,9 @@ else:
     ))
 
     fig_comparacion.update_layout(
-        title="Comparación de Rendimientos Acumulados",
-        xaxis_title="Fecha",
-        yaxis_title="Rendimiento Acumulado",
+        title="Cumulative Returns Comparison",
+        xaxis_title="Date",
+        yaxis_title="Cumulative Returns",
         yaxis_tickformat=".0%"
     )
 

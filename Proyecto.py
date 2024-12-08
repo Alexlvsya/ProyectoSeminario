@@ -36,9 +36,10 @@ if main_option == "ETF Individual Analysis":
 #letsgooo
 elif main_option == "Picking our ETFs":
     st.subheader("Information About the ETFs that conform the Portfolio")
+    
     st.markdown(
         """
-        For more detailed insights on the ETFs, visit the following [ETF Information Page](https://proyectoseminario-agjfdpx3d5glae6bwrzvzd.streamlit.app/).
+        For more detailed insights on the ETFs, visit the following [ETF Information Page]( https://proyectoseminario-agjfdpx3d5glae6bwrzvzd.streamlit.app/ ).
         """,
         unsafe_allow_html=True
     )

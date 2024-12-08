@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 # Configuración global para Streamlit
 st.set_page_config(
-    page_title="Análisis de VaR/CVaR para ETFs",
+    page_title="Metrics and Var/CVaR graphics for Each ETF",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -111,24 +111,24 @@ def graficar_var_cvar(etf, returns):
     return plt
 
 # Streamlit UI
-st.title("Análisis de VaR/CVaR para ETFs 📊")
+st.title("Metrics and VaR/CVaR graphics for each ETF ")
 
 # Barra lateral
-st.sidebar.header("Parámetros 📌")
+st.sidebar.header("ETFs")
 
 # Selector de ETF
 etf_seleccionado = st.sidebar.selectbox(
-    "Selecciona un ETF:",
+    "Please Select an ETF:",
     etfs,
-    help="Elige un ETF para visualizar su gráfico de VaR/CVaR."
+    help="Choose an ETF to visualize its graphs and metrics."
 )
 
 # Mostrar gráfica del ETF seleccionado
-st.subheader(f"Gráfica de VaR/CVaR para {etf_seleccionado}")
+st.subheader(f" VaR/CVaR plot for  {etf_seleccionado}")
 grafica = graficar_var_cvar(etf_seleccionado, daily_returns)
 st.pyplot(grafica)
 
 # Mostrar tabla con métricas
-st.subheader("Tabla de métricas de todos los ETFs")
+st.subheader("Metris for every ETF")
 st.dataframe(metrics_df.style.background_gradient(cmap="Blues"))
 

@@ -33,7 +33,7 @@ def graficar_drawdown_financiero(precios, titulo="Análisis de Drawdown"):
         go.Scatter(
             x=precios.index,
             y=precios.values,
-            name='Precio',
+            name='Value',
             line=dict(color='#6A5ACD'),
         ),
         row=1, col=1
@@ -85,7 +85,7 @@ def graficar_drawdown_financiero(precios, titulo="Análisis de Drawdown"):
     )
 
     # Actualizar ejes Y
-    fig.update_yaxes(title="Precio", row=1, col=1)
+    fig.update_yaxes(title="Value", row=1, col=1)
     fig.update_yaxes(
         title="Drawdown %",
         tickformat=".1%",
@@ -93,7 +93,7 @@ def graficar_drawdown_financiero(precios, titulo="Análisis de Drawdown"):
         row=2,
         col=1
     )
-    fig.update_xaxes(title="Fecha", row=2, col=1)
+    fig.update_xaxes(title="Date", row=2, col=1)
 
     return fig
 
@@ -141,7 +141,7 @@ etf_seleccionado = st.selectbox(
     "Select an ETF to Analyze:",
     options=simbolos,
     format_func=lambda x: f"{x} (ETF)",
-    help="Select one Etf to visualize its Drawdown Anlyisis and it graphs."
+    help="Select one Etf to visualize its Drawdown Anlyisis and its graphs."
 )
 
 # Procesar datos del ETF seleccionado

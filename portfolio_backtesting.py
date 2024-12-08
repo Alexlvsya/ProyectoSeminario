@@ -250,7 +250,7 @@ else:
     yaxis_title="Rendimiento Acumulado",
     yaxis_tickformat=".0%",
     height=700,  # Aumenta la altura de la figura
-    width=1900   # Aumenta el ancho de la figura
+    width=1300   # Aumenta el ancho de la figura
     )
 
     st.plotly_chart(fig_comparacion)

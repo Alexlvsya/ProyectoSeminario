@@ -245,12 +245,12 @@ else:
         yaxis_tickformat=".0%"
     )
     fig_comparacion.update_layout(
-    title="Comparación de Rendimientos Acumulados",
-    xaxis_title="Fecha",
-    yaxis_title="Rendimiento Acumulado",
+    title="Cumulative Returns Against Benchmark",
+    xaxis_title="Date",
+    yaxis_title="Cumulative Returns",
     yaxis_tickformat=".0%",
-    height=700,  # Aumenta la altura de la figura
-    width=1500   # Aumenta el ancho de la figura
+    height=450,  # Aumenta la altura de la figura
+    width=1600   # Aumenta el ancho de la figura
     )
 
     st.plotly_chart(fig_comparacion)

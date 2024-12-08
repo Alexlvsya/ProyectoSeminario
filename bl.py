@@ -354,11 +354,21 @@ def plot_portfolio_weights():
 def show_views():
     st.subheader("Views")
     views = {
-        "EMB": "EMB: Para el Emerging Markets Bond, dada la reciente incertidumbre política generada por las elecciones en USA, creemos que la inflación en estos países se puede disparar debido a un aumento en los precios de los commodities.",
-        "XLE": "XLE: Sector energético con buenas perspectivas a corto plazo debido al aumento en la demanda global de energía.",
-        "SPXL": "SPXL: ETF apalancado con un rendimiento proyectado del 55% a 1 año según nuestras predicciones.",
-        "EEM": "EEM: Mercados emergentes con un retorno esperado del 10% influenciado por la recuperación económica global.",
-        "SHV": "SHV: Baja volatilidad con retornos proyectados de 2%."
+        "EMB": ''' Expected growth: 1%, interval (0.1 - 0.35) 
+        With global interest rates moderating, emerging markets bonds may offer attractive returns. 
+        However, high inflation and geopolitical risks limit confidence, justifying a narrow range of lower growth expectations.''',
+        "XLE": '''Expected growth: 15%, interval (0.35 - 0.65)
+        The energy sector continues to benefit from elevated oil prices and the energy transition. 
+        While sustainability policies create uncertainty, strong cash flows among major companies justify an optimistic and broader range.''',
+        "SPXL": '''Expected growth: 55%, interval (0.5 - 0.8)
+        The U.S. equity market has shown resilience, driven by technological growth and expectations of lower rates.
+        However, the leveraged nature of this ETF introduces higher volatility, warranting a relatively broad range with strong bullish expectations.''',
+        "EEM": '''Expected growth: 10%, interval (0.2 - 0.5) 
+        Emerging markets could benefit from post-pandemic economic recovery, but challenges like a strong dollar and potential slowdowns in China pose risks.
+        This supports moderate growth expectations within an intermediate range.''',
+        "SHV": '''Expected growth: 2%, interval (0.2 - 0.4) 
+        With interest rates remaining high in the short term, short-term Treasury bonds provide a safe and stable option. However, 
+        the potential for rate cuts in 2024 reduces their relative attractiveness, justifying a conservative range.'''
     }
     for asset, view in views.items():
         st.markdown(f"**{asset}**: {view}")
@@ -381,12 +391,17 @@ if selected_option == "Correlation Heatmap":
 elif selected_option == "Market Prior Returns":
     st.subheader("Market Prior Returns")
     plot_market_prior_returns()
+    st.write('''These are the historical returns (since 2010) that each ETF has provided ''')
 elif selected_option == "Returns Comparison":
     st.subheader("Returns Comparison")
     plot_returns_comparison()
+    st.write('''Given the views and applying the Black-Litterman's Model, this chart shows the comparisson 
+             between Prior-returns, Expected-returns(views) and Posterior-returns (Black-Litterman)''')
 elif selected_option == "Portfolio Weights":
     st.subheader("Portfolio Weights")
     plot_portfolio_weights()
+    st.write('''This chart shows the optimum allocation given by the Black-Litterman Model,
+               our views were super-optimistic about SPXL and thats why this asset is almost half the allocation''')
 elif selected_option == "All Views":
     show_views()
 #prueba sync git 

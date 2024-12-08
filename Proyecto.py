@@ -13,8 +13,8 @@ st.write("Created for the Portfolio Management an Asset Allocation Course, UNAM"
 
 # Opciones principales
 options = [
-    "Picking Our ETFs",
     "ETF Individual Analysis",
+    "Picking Our ETFs",
     "Portfolio Optimization",
     "Portfolio Backtesting",
     "Black-Litterman Model",

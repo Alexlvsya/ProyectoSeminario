@@ -130,3 +130,40 @@ st.pyplot(grafica)
 st.subheader("Metrics for each ETF")
 st.dataframe(metrics_df.style.background_gradient(cmap="Blues"))
 
+st.write(''' 
+ "EMB": """
+    - **Mean**: Near-zero average daily return indicates minimal gains.
+    - **Skewness**: Strong negative skewness shows a bias towards extreme negative returns.
+    - **Excess Kurtosis**: Very high, reflecting frequent extreme price movements.
+    - **VaR/CVaR**: Indicates moderate daily downside risk with significant tail risks.
+    - **Conclusion**: Suitable for diversification but warrants caution due to risks.
+    """,
+    "XLE": """
+    - **Mean**: Moderate average daily return relative to others.
+    - **Skewness**: Mildly negative, with a slight bias towards negative returns.
+    - **Excess Kurtosis**: Elevated, highlighting occasional large price swings.
+    - **VaR/CVaR**: Substantial risk during adverse conditions.
+    - **Conclusion**: Moderate risk-return balance, appealing to risk-tolerant investors.
+    """,
+    "SPXL": """
+    - **Mean**: Highest daily return among the ETFs, indicating strong growth potential.
+    - **Skewness**: Slightly negative, reflecting mild asymmetry towards losses.
+    - **Excess Kurtosis**: High, suggesting amplified volatility and extreme price moves.
+    - **VaR/CVaR**: Significant potential losses in extreme downturns.
+    - **Conclusion**: High-risk, high-reward ETF for aggressive investors.
+    """,
+    "EEM": """
+    - **Mean**: Low average daily return, implying minimal growth potential.
+    - **Skewness**: Slightly negative, with mild bias towards losses.
+    - **Excess Kurtosis**: Moderate, indicating occasional large swings.
+    - **VaR/CVaR**: Moderate risk with subdued performance.
+    - **Conclusion**: Diversification tool with modest returns and moderate risk.
+    """,
+    "SHV": """
+    - **Mean**: Near-zero daily return aligns with its low-risk profile.
+    - **Skewness**: Positive, indicating a slight bias towards positive returns.
+    - **Excess Kurtosis**: Low, with minimal extreme price movements.
+    - **VaR/CVaR**: Extremely low downside risk.
+    - **Conclusion**: Safe-haven asset ideal for risk-averse investors.
+    """
+''')

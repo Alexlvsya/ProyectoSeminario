@@ -129,6 +129,6 @@ grafica = graficar_var_cvar(etf_seleccionado, daily_returns)
 st.pyplot(grafica)
 
 # Mostrar tabla con métricas
-st.subheader("Metris for every ETF")
+st.subheader("Metrics for every ETF")
 st.dataframe(metrics_df.style.background_gradient(cmap="Blues"))
 

@@ -8,8 +8,6 @@ import seaborn as sn
 # Configuración de la página de Streamlit
 st.set_page_config(page_title="Análisis de VaR/CVaR para ETFs", layout="wide")
 
-# Estilo global de Matplotlib
-style.use("seaborn-darkgrid")
 
 # Fondo personalizado
 page_bg = """

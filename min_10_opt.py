@@ -11,7 +11,7 @@ st.set_page_config(
 st.title("Portfolio")
 
 # URL de la imagen en el repositorio de GitHub
-image_url = "https://raw.githubusercontent.com/<Alexlvsya>/<ProyectoSeminario>/<main>/min10.png"
+image_url = "https://raw.githubusercontent.com/Alexlvsya/ProyectoSeminario/main/min10.png"
 
 # Mostrar la imagen en Streamlit
 st.image(image_url, caption="Portfolio Visualization", use_column_width=True)

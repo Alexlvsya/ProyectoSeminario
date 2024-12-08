@@ -32,7 +32,7 @@ if main_option == "ETF Individual Analysis":
         st.markdown("[Ir a Metrics and Var/CVaR Analysis](https://proyectoseminario-axpnjhfam5z8gv2ma8ntnx.streamlit.app/)")
     elif etf_selection == "Drawdown Analysis":
         st.markdown("[Ir a Drawdown Analysis](https://proyectoseminario-hbvka56leot26ekvwynaig.streamlit.app/)")
-
+#letsgooo
 elif main_option == "Portfolio Optimization":
     st.subheader("Portfolio Optimization")
     optimization_options = [

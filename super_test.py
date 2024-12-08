@@ -361,7 +361,10 @@ plt.show() #esta es la gráfica que devuelve el metodo de minima varianza con ob
 #streamlit
 
 # Configure Streamlit page
-st.set_page_config(page_title="Portfolio Optimization", layout="wide")
+st.set_page_config(
+    page_title="Port Opt",
+    layout="wide",
+)
 
 # Sidebar for optimization selection
 st.sidebar.title("Select Optimization Method")
@@ -384,8 +387,8 @@ if optimization_method == "Max Sharpe Ratio":
     autopct='%1.1f%%',
     startangle=140,
     textprops={'fontsize': 12, 'weight': 'bold'},
-    wedgeprops={'edgecolor': 'black', 'linewidth': 0.7}
-)
+    wedgeprops={'edgecolor': 'black', 'linewidth': 0.7} 
+    )
 
     # Ajustar colores y tamaño de los porcentajes
     for autotext in autotexts:

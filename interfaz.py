@@ -47,7 +47,7 @@ elif main_option == "Portfolio Optimization":
     if optimization_selection == "Max Sharpe Ratio":
         st.markdown("[Ir a Max Sharpe Ratio](#)")
     elif optimization_selection == "Minimum Volatility":
-        st.markdown("[Ir a Minimum Volatility](#)")
+        st.markdown("[Ir a Minimum Volatility](https://proyectoseminario-agqznvx4oz8tx5wpgbecmk.streamlit.app/)")
     elif optimization_selection == "Minimum Volatility with a 10% Objective":
         st.markdown("[Ir a Minimum Volatility with a 10% Objective](#)")
 

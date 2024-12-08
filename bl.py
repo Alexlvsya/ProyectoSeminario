@@ -375,7 +375,9 @@ if selected_option == "Correlation Heatmap":
              we would like to remark; as expected , correlation between SHV and the other ETFS 
              is quite low (negative at every ETF); the maximum correlation between assets is achieved 
              by the SPXL and the EEM (98), actually, all correlations (not SHV case) are very high
-             with values over .85.  ''')
+             with values over .85.  Because of this, we have to be careful at determinig our views
+             a neutral view could end returnig an equally weighted portfolio and a very optimistic
+             view in one asset could give us a portfolio allocated in almost one asset. ''')
 elif selected_option == "Market Prior Returns":
     st.subheader("Market Prior Returns")
     plot_market_prior_returns()

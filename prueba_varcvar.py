@@ -4,7 +4,7 @@ import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
 from matplotlib import style
-
+import seaborn as sn 
 # Configuración de la página de Streamlit
 st.set_page_config(page_title="Análisis de VaR/CVaR para ETFs", layout="wide")
 

@@ -354,9 +354,8 @@ ax.grid(axis="y", linestyle="--", alpha=0.7)
 ax.set_facecolor("lightgray")
 fig.patch.set_facecolor("white")
 
-# Mostrar la gráfica
-plt.tight_layout()
-plt.show() #esta es la gráfica que devuelve el metodo de minima varianza con objetivo del 10 %
+
+
 
 #streamlit
 

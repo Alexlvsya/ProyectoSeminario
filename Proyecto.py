@@ -36,15 +36,12 @@ if main_option == "ETF Individual Analysis":
 #letsgooo
 elif main_option == "Picking our ETFs":
     st.subheader("Information About the ETFs that conform the Portfolio")
-    a = ["Explanation to Picking the ETFs"]
-    a_select = st.selectbox("Select", a)
-        
-    if a_select == "Explanation to Picking the ETFs": 
-        st.markdown(
+     
+    st.markdown(
         """
         For more detailed insights on the ETFs, visit the following [ETF Information Page]( https://proyectoseminario-agjfdpx3d5glae6bwrzvzd.streamlit.app/ ).
         """,
-        unsafe_allow_html=True
+    unsafe_allow_html=True
     )
     
 

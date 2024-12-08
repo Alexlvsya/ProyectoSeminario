@@ -249,7 +249,7 @@ else:
     xaxis_title="Fecha",
     yaxis_title="Rendimiento Acumulado",
     yaxis_tickformat=".0%",
-    height=800,  # Aumenta la altura de la figura
+    height=1600,  # Aumenta la altura de la figura
     width=1200   # Aumenta el ancho de la figura
     )
 

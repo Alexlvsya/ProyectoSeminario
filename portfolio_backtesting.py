@@ -254,7 +254,7 @@ else:
     width=1200,   # Aumenta el ancho de la figura
     legend=dict(
         x=0.01,  # Posición horizontal de la leyenda
-        y=0.99,  # Posición vertical de la leyenda
+        y=1.5,  # Posición vertical de la leyenda
         xanchor="left",  # Ancla a la izquierda
         yanchor="top",   # Ancla en la parte superior
         itemwidth=30,    # Ajusta el ancho de los elementos (opcional)

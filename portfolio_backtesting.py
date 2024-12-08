@@ -253,7 +253,14 @@ else:
     height=450,  # Aumenta la altura de la figura
     width=1200,   # Aumenta el ancho de la figura
     legend=dict(
-        font=dict(size=10)  # Ajusta el tamaño de la fuente de la leyenda
+        x=0.01,  # Posición horizontal de la leyenda
+        y=0.99,  # Posición vertical de la leyenda
+        xanchor="left",  # Ancla a la izquierda
+        yanchor="top",   # Ancla en la parte superior
+        itemwidth=30,    # Ajusta el ancho de los elementos (opcional)
+        valign="middle", # Alineación vertical de los elementos dentro del cuadro
+        borderwidth=1,   # Ancho del borde del cuadro de leyenda
+        bordercolor="gray"  # Color del borde (opcional)
     )
     )
     st.plotly_chart(fig_comparacion)

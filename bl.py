@@ -318,7 +318,7 @@ def plot_correlation_heatmap():
     S_corr = np.random.rand(5, 5)  # Matriz de correlación simulada
     np.fill_diagonal(S_corr, 1)
     df_corr = pd.DataFrame(S_corr, columns=["EEM", "EMB", "SHV", "SPXL", "XLE"], index=["EEM", "EMB", "SHV", "SPXL", "XLE"])
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(6, 4))
     sns.heatmap(df_corr, annot=True, cmap="coolwarm", cbar_kws={'shrink': 0.8})
     st.pyplot(plt)
 

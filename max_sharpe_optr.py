@@ -133,7 +133,7 @@ st.plotly_chart(fig_scatter, use_container_width=True)
 
 st.write(''' Every time you run the page, the model will give you different weights 
          for the max sharpe ratio portfolio, but by running this code a lot of times 
-         we identify the SPXL and the EEM etfs as the preferred allocations of this model. ''')
+         we identified the SPXL and the EEM etfs as the preferred allocations of this model. ''')
 # Pie de página
 st.markdown("The information above is not an investment recommendation")
 st.write("Credits: Alejandro Ramirez Camacho / Emilio Dominguez Venezuela.")

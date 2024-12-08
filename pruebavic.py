@@ -109,24 +109,24 @@ def graficar_var_cvar(etf, returns):
     return plt
 
 # Streamlit UI
-st.title("Análisis de VaR/CVaR para ETFs 📊")
+st.title("Metrics for ETFs")
 
 # Barra lateral
-st.sidebar.header("Parámetros 📌")
+st.sidebar.header("ETFs")
 
 # Selector de ETF
 etf_seleccionado = st.sidebar.selectbox(
-    "Selecciona un ETF:",
+    "Select an ETF:",
     etfs,
-    help="Elige un ETF para visualizar su gráfico de VaR/CVaR."
+    help="Choose an ETF to visualize its graphs and metrics"
 )
 
 # Mostrar gráfica del ETF seleccionado
-st.subheader(f"Gráfica de VaR/CVaR para {etf_seleccionado}")
+st.subheader(f"Var/CVaR plot for {etf_seleccionado}")
 grafica = graficar_var_cvar(etf_seleccionado, daily_returns)
 st.pyplot(grafica)
 
 # Mostrar tabla con métricas
-st.subheader("Tabla de métricas de todos los ETFs")
+st.subheader("Metrics for each ETF")
 st.dataframe(metrics_df.style.background_gradient(cmap="Blues"))
 

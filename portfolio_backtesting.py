@@ -157,7 +157,7 @@ precios = obtener_datos_acciones(simbolos, start_date)
 retornos = precios.pct_change().dropna()
 
 # Interfaz de Streamlit
-st.title("Portafolio Backetesting Analysis")
+st.title("Portafolio Backtesting Analysis")
 
 tipo_vista = st.radio("Select Preferred View:", ("Individual Portfolio Analysis", "Returns against S&P500"))
 
@@ -262,6 +262,8 @@ else:
         tracegroupgap=5  # Espaciado entre los grupos 
     )
     )
+    
+    st.plotly_chart(fig_comparacion)
     st.write('''Given the comparative plot, its quite clear that the Max Sharpe 
              Portfolio is the one who gets the max returns and is the only portfolio 
              currently beating the S&P500.
@@ -270,5 +272,4 @@ else:
              The Minimum Volatility Portfolios  are clearly behind the last 2, actually
              the Minimum Volatility Portfolio is losing, maybe because its return objective
              is in terms of Mexican Pesos (MXN)''')
-    st.plotly_chart(fig_comparacion)
 

@@ -201,7 +201,7 @@ if tipo_vista == "Portafolio":
         metricas['Máximo Drawdown (%)'],
         metricas['Fecha Pico'],
         metricas['Fecha Valle'],
-        metricas[' Duración de la Caída (días)'],
+        metricas['Duración de la Caída (días)'],
         metricas['Fecha Recuperación'],
         metricas['Duración Recuperación (días)'],
         metricas['Duración Total (días)']

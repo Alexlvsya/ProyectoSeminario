@@ -3,22 +3,38 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
-from matplotlib import style
-import seaborn as sn 
-# Configuración de la página de Streamlit
-st.set_page_config(page_title="Análisis de VaR/CVaR para ETFs", layout="wide")
 
+# Configuración global para Streamlit
+st.set_page_config(
+    page_title="Análisis de VaR/CVaR para ETFs",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
-# Fondo personalizado
-page_bg = """
-<style>
-body {
-    background-color: #1A374D;
-    color: white;
-}
-</style>
-"""
-st.markdown(page_bg, unsafe_allow_html=True)
+# Estilos personalizados con CSS
+st.markdown(
+    """
+    <style>
+        .main {
+            background-color: #001f3f; /* Azul marino */
+            color: white;
+        }
+        .sidebar .sidebar-content {
+            background-color: #003366; /* Azul más oscuro */
+        }
+        .css-1lcbmhc, .css-1x8cf1d, .css-2trqyj { 
+            color: white; /* Texto en la barra lateral */
+        }
+        .css-17eq0hr a {
+            color: #66ccff; /* Links */
+        }
+        .dataframe tr:hover {
+            background-color: #112b47; /* Resaltar filas al pasar el mouse */
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 # Función para calcular CVaR
 def calculate_cvar(returns, alpha=0.05):
@@ -77,29 +93,28 @@ def graficar_var_cvar(etf, returns):
     cvar = calculate_cvar(etf_returns)
 
     plt.figure(figsize=(12, 6))
-    plt.plot(etf_returns.index, etf_returns, color="#2C3E50", label=f'Rendimientos diarios - {etf}')
-    plt.fill_between(etf_returns.index, etf_returns, color='#2C3E50', alpha=0.1)
+    plt.plot(etf_returns.index, etf_returns, color="#66ccff", label=f'Daily Returns - {etf}')
+    plt.fill_between(etf_returns.index, etf_returns, color='#66ccff', alpha=0.1)
     plt.axhline(y=var, color='red', linestyle='--', linewidth=1.5, label=f'VaR (95%): {var:.2f}%')
     plt.axhline(y=cvar, color='green', linestyle='--', linewidth=1.5, label=f'CVaR (95%): {cvar:.2f}%')
 
     # Configuración de diseño
-    plt.title(f'VaR/CVaR para {etf}', fontsize=18, weight='bold')
-    plt.xlabel('Fecha', fontsize=14)
-    plt.ylabel('Retorno (%)', fontsize=14)
+    plt.title(f'VaR/CVaR para {etf}', fontsize=18, weight='bold', color='white')
+    plt.xlabel('Fecha', fontsize=14, color='white')
+    plt.ylabel('Rendimiento (%)', fontsize=14, color='white')
     plt.legend(loc="upper left", frameon=True, shadow=True)
     plt.grid(color='gray', linestyle='--', linewidth=0.5, alpha=0.7)
-    plt.gca().set_facecolor('#D9E4EC')
+    plt.gca().set_facecolor('#112b47')
+    plt.xticks(color='white')
+    plt.yticks(color='white')
     plt.tight_layout()
     return plt
 
-# Interfaz de usuario en Streamlit
-st.title("\ud83d\udcca Análisis de VaR/CVaR para ETFs")
-st.markdown("""
-Este análisis permite visualizar y calcular las métricas clave de riesgo y rendimiento para diferentes ETFs. Selecciona un ETF desde la barra lateral para ver detalles específicos.
-""")
+# Streamlit UI
+st.title("Análisis de VaR/CVaR para ETFs 📊")
 
 # Barra lateral
-st.sidebar.header("Parámetros")
+st.sidebar.header("Parámetros 📌")
 
 # Selector de ETF
 etf_seleccionado = st.sidebar.selectbox(
@@ -115,4 +130,5 @@ st.pyplot(grafica)
 
 # Mostrar tabla con métricas
 st.subheader("Tabla de métricas de todos los ETFs")
-st.dataframe(metrics_df.style.set_properties(**{'background-color': '#1A374D', 'color': 'white'}))
+st.dataframe(metrics_df.style.background_gradient(cmap="Blues"))
+

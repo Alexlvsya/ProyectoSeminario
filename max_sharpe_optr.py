@@ -16,8 +16,8 @@ warnings.filterwarnings('ignore')
 st.set_page_config(page_title="Portfolio Simulations", page_icon="📈", layout="wide")
 
 # Título de la aplicación
-st.title("Portfolio Simulations")
-st.write("Visualización de portafolios simulados y asignación de activos con el máximo Sharpe Ratio.")
+st.title("Max Sharpe Ratio Portfolio")
+st.write("Asset Allocation of the Portfolio using Max Sharpe Ratio Method.")
 
 # Datos iniciales
 symbols = ['EMB', 'XLE', 'SPXL', 'EEM', 'SHV']
@@ -70,7 +70,7 @@ allocation = dict(zip(symbols, around(msrpwts, 2)))
 colors = ["#2C3E50", "#1ABC9C", "#6A5ACD", "#4682B4", "#708090"]
 
 # ---- Gráfica de pastel ----
-st.subheader("Asset Allocation - Max Sharpe Ratio")
+st.subheader("Plot Pie of the Portfolio Weights")
 
 fig_pie, ax = plt.subplots(figsize=(8, 8))
 wedges, texts, autotexts = ax.pie(
@@ -95,7 +95,8 @@ fig_pie.patch.set_facecolor("gray")
 st.pyplot(fig_pie)
 
 # ---- Gráfica de portafolios simulados ----
-st.subheader("Monte Carlo Simulated Portfolio")
+st.subheader('''To get the weights of the portfolio, we simulated 10000 possible portfolios, 
+             which are shown in the graphic below.''')
 
 fig_scatter = px.scatter(
     temp,
@@ -128,7 +129,10 @@ fig_scatter.update_layout(
 
 st.plotly_chart(fig_scatter, use_container_width=True)
 
+st.write(''' Every time you run the page, the model will give you different weights 
+         for the max sharpe ratio portfolio, but by running this code a lot of times 
+         we identify the SPXL and the EEM etfs as the preferred allocations of this model. ''')
 # Pie de página
-st.markdown("---")
-st.write("Creado por [Tu Nombre](#).")
+st.markdown("The information above is not an investment recommendation")
+st.write("Credits: Alejandro Ramirez Camacho / Emilio Dominguez Venezuela.")
 

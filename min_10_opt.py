@@ -41,19 +41,42 @@ correlation_matrix_mxn = daily_returns_mxn.corr()
 # Matriz de covarianza y cálculo de pesos
 S_mxn = np.diag(std_devs_mxn)
 covariance_matrix_mxn = S_mxn @ correlation_matrix_mxn.to_numpy() @ S_mxn
-covariance_matrix_inv_mxn = np.linalg.inv(covariance_matrix_mxn)
-ones = np.ones(len(etfs))
+# Verificar las dimensiones de los datos
+st.write("Dimensiones de los datos iniciales:")
+st.write(f"ETFs ajustados (MXN): {data_mxn.shape}")
+st.write(f"Rendimientos diarios: {daily_returns_mxn.shape}")
 
+# Recalcular la matriz de covarianza en pesos
+covariance_matrix_mxn = daily_returns_mxn.cov().to_numpy()
+
+# Ajustar dimensiones para total_returns_mxn
+total_returns_mxn = total_returns_mxn.loc[data_mxn.columns]  # Asegúrate de alinear con las columnas de los ETFs
+
+# Inversa de la matriz de covarianza
+covariance_matrix_inv_mxn = np.linalg.inv(covariance_matrix_mxn)
+
+# Recalcular A, B y C
+ones = np.ones(len(etfs))  # Esto debe coincidir con el número de ETFs
 A_mxn = ones @ covariance_matrix_inv_mxn @ ones
 B_mxn = total_returns_mxn @ covariance_matrix_inv_mxn @ ones
 C_mxn = total_returns_mxn @ covariance_matrix_inv_mxn @ total_returns_mxn
+
+
+
 
 expected_return_mxn = 0.10 / 252  # Rendimiento objetivo diario ajustado
 denominator_mxn = (A_mxn * C_mxn - B_mxn**2)
 _lambda_mxn = (expected_return_mxn * A_mxn - B_mxn) / denominator_mxn
 _gamma_mxn = (C_mxn - expected_return_mxn * B_mxn) / denominator_mxn
 
-weights_mxn = covariance_matrix_inv_mxn @ (_lambda_mxn * total_returns_mxn + _gamma_mxn * ones)
+# Calcular los pesos del portafolio
+_lambda_mxn = (expected_return_mxn * A_mxn - B_mxn) / denominator_mxn
+_gamma_mxn = (C_mxn - expected_return_mxn * B_mxn) / denominator_mxn
+weights_mxn = covariance_matrix_inv_mxn @ (_lambda_mxn * total_returns_mxn.to_numpy() + _gamma_mxn * ones)
+
+# Crear DataFrame de pesos
+weights_df_mxn = pd.DataFrame(weights_mxn, index=etfs, columns=["Pesos"])
+
 weights_df_mxn = pd.DataFrame(weights_mxn, index=etfs, columns=["Pesos"])
 
 # ---- Configuración para la gráfica ----

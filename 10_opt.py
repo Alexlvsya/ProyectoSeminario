@@ -36,7 +36,7 @@ st.markdown(
 )
 
 # URL de la imagen en el repositorio de GitHub
-image_url = "https://raw.githubusercontent.com/Alexlvsya/ProyectoSeminario/Main/min10.png"
+image_url = "https://raw.githubusercontent.com/Alexlvsya/ProyectoSeminario/main/min10.png"
 
 # Mostrar la imagen centrada con un mayor tamaño
 st.markdown(

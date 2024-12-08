@@ -372,7 +372,9 @@ if selected_option == "Correlation Heatmap":
     st.subheader("Analysis")
     st.write('''In this chart are displayed all correlations between the different
              assets that will conform the portfolio. There are some highlights here that 
-             we would like to remark; ''')
+             we would like to remark; as expected , correlation between SHV and the other ETFS 
+             is quite low; XLE and SPXL are highly correlated and so the SPXL and EEM, 
+             this could find an explanation on globalized markets. ''')
 elif selected_option == "Market Prior Returns":
     st.subheader("Market Prior Returns")
     plot_market_prior_returns()
